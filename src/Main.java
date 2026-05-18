@@ -4,8 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Welcome to Password Strength Checker");
-        System.out.print("Enter your password: ");
+        System.out.println("Welcome to Password Strength Checker - Detailed Report Version");        System.out.print("Enter your password: ");
         String password = input.nextLine();
 
         int score = 0;

@@ -10,13 +10,26 @@ public class Main {
 
         int score = 0;
 
-        if (password.length() >= 8) score++;
-        if (password.matches(".*[A-Z].*")) score++;
-        if (password.matches(".*[a-z].*")) score++;
-        if (password.matches(".*[0-9].*")) score++;
-        if (password.matches(".*[!@#$%^&*()_+=-].*")) score++;
+        boolean hasLength = password.length() >= 8;
+        boolean hasUppercase = password.matches(".*[A-Z].*");
+        boolean hasLowercase = password.matches(".*[a-z].*");
+        boolean hasNumber = password.matches(".*[0-9].*");
+        boolean hasSpecial = password.matches(".*[!@#$%^&*()_+=-].*");
+
+        if (hasLength) score++;
+        if (hasUppercase) score++;
+        if (hasLowercase) score++;
+        if (hasNumber) score++;
+        if (hasSpecial) score++;
 
         System.out.println("Score: " + score + "/5");
+
+        System.out.println("\nDetailed Report:");
+        System.out.println("Length: " + (hasLength ? "Found" : "Missing"));
+        System.out.println("Uppercase Letters: " + (hasUppercase ? "Found" : "Missing"));
+        System.out.println("Lowercase Letters: " + (hasLowercase ? "Found" : "Missing"));
+        System.out.println("Numbers: " + (hasNumber ? "Found" : "Missing"));
+        System.out.println("Special Characters: " + (hasSpecial ? "Found" : "Missing"));
 
         if (score <= 2) {
             System.out.println("Password Strength: Weak");

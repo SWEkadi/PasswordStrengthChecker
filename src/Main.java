@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-          System.out.println("Welcome to Password Strength Checker");
-          System.out.print("Enter your password: ");
-                  String password = input.nextLine();
+        System.out.println("Welcome to Password Strength Checker");
+        System.out.print("Enter your password: ");
+        String password = input.nextLine();
 
         String[] commonPasswords = {
             "123456",
@@ -33,9 +33,6 @@ public class Main {
 
         if (isCommon) {
             System.out.println("Warning: This is a commonly used weak password.");
-            System.out.println("Password Strength: Very Weak");
-            input.close();
-            return;
         }
 
         int score = 0;
@@ -61,7 +58,9 @@ public class Main {
         System.out.println("Numbers: " + (hasNumber ? "Found" : "Missing"));
         System.out.println("Special Characters: " + (hasSpecial ? "Found" : "Missing"));
 
-        if (score <= 2) {
+        if (isCommon) {
+            System.out.println("Password Strength: Very Weak");
+        } else if (score <= 2) {
             System.out.println("Password Strength: Weak");
         } else if (score <= 4) {
             System.out.println("Password Strength: Medium");
